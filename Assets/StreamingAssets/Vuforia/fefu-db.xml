@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="fefu_5" size="5.000000 3.171875" />
+    <ImageTarget name="fefu_4" size="1.000000 0.666102" />
+    <ImageTarget name="fefu_3" size="3.000000 1.350000" />
+    <ImageTarget name="fefu_2" size="1.000000 0.666667" />
+    <ImageTarget name="fefu_1" size="1.000000 0.667915" />
+  </Tracking>
+</QCARConfig>
