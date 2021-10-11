@@ -6,34 +6,29 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ObjectCollisions : MonoBehaviour
 {
-    public enum ObjectType
-    {
-        TStone, TFire, TBricks, TTree, TFlower
-    };
-
-    [SerializeField]
-    public ObjectType type;
-
     public GameObject MixedObject;
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
-        ObjectCollisions obj = gameObject.GetComponent<ObjectCollisions>();
-        if (obj.type == type) return;
-
-        if (obj.type == ObjectType.TStone && type == ObjectType.TFire)
+        if (!other.GetComponent<ObjectType>())
         {
-            other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            Debug.Log($"Couldn't find component ObjectType {other.gameObject.name}");
+            return;
+        }
+
+        ObjectType obj = gameObject.transform.GetChild(0).GetComponent<ObjectType>();
+        var type = other.gameObject.GetComponent<ObjectType>().type;
+        if (obj.type == type)
+        {
+            Debug.Log($"The same ObjectType on 2 GameObjects");
+            return;
+        }
+
+        Debug.Log($"Collide {obj.name} with {other.gameObject.name}");
+
+        if (obj.type == ObjectType.TObjectType.TStone && type == ObjectType.TObjectType.TFire)
+        {
+            other.gameObject.gameObject.SetActive(false);
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
             Instantiate(MixedObject, gameObject.transform);
         }
