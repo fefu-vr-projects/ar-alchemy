@@ -6,7 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class ObjectCollisions : MonoBehaviour
 {
+    public GameObject visualPart;
     public GameObject MixedObject;
+    public GameObject ConnectedMixedObject;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,9 +30,24 @@ public class ObjectCollisions : MonoBehaviour
 
         if (obj.type == ObjectType.TObjectType.TStone && type == ObjectType.TObjectType.TFire)
         {
-            other.gameObject.gameObject.SetActive(false);
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            Instantiate(MixedObject, gameObject.transform);
+            Vector3 newpos = (other.transform.position + visualPart.transform.position) / 2;
+
+            other.gameObject.SetActive(false);
+            visualPart.SetActive(false);
+
+            ConnectedMixedObject = Instantiate(MixedObject, newpos, Quaternion.identity);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log($"TriggerExit {other.gameObject.name}");
+        
+        if (other.gameObject != MixedObject)
+        {
+            Destroy(ConnectedMixedObject);
+            other.gameObject.SetActive(true);
+            visualPart.SetActive(true);
         }
     }
 }
