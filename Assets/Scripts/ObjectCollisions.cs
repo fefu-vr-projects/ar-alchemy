@@ -11,6 +11,7 @@ public class ObjectCollisions : MonoBehaviour
     private static ResourcesData ResourcesData;
     
     public GameObject ConnectedMixedObject;
+    public GameObject OtherResource;
 
 
     private void Start()
@@ -23,6 +24,7 @@ public class ObjectCollisions : MonoBehaviour
     {
         if (!other.gameObject.CompareTag(ResourceTag))
         {
+            Debug.Log($"Resource {other.gameObject.name} hasn't tag {ResourceTag}");
             return;
         }
 
@@ -44,7 +46,7 @@ public class ObjectCollisions : MonoBehaviour
 
         if (current.type == other.type)
         {
-            Debug.Log($"The same ObjectType on 2 GameObjects");
+            Debug.Log($"The same ObjectType {current.type.ToString()} on 2 GameObjects");
             return;
         }
 
@@ -60,11 +62,18 @@ public class ObjectCollisions : MonoBehaviour
                 VisualPart.SetActive(false);
 
                 ConnectedMixedObject = Instantiate(r.MixedPrefab, newpos, Quaternion.identity);
+
+                var parent = other.GetComponentInParent<ObjectCollisions>();
+                parent.ConnectedMixedObject = ConnectedMixedObject;
+                OtherResource = parent.transform.gameObject;
+                parent.OtherResource = gameObject;
+
+                Debug.Log($"Successfull combine resources {gameObject.name} with {other.gameObject.name}");
                 return;
             }
         }
 
-        Debug.Log("Couldn't combine resorces");
+        Debug.Log($"Couldn't combine resources {gameObject.name} with {other.gameObject.name}");
     }
 
     private void OnTriggerExit(Collider other)
@@ -74,14 +83,15 @@ public class ObjectCollisions : MonoBehaviour
             return;
         }
 
-        Debug.Log($"TriggerExit {other.gameObject.name}");
-        
-        if (other.gameObject != ConnectedMixedObject)
+        Debug.Log($"TriggerExit {other.gameObject.name} ConnectedMixedObject {ConnectedMixedObject}");
+        var parent = other.gameObject.transform.parent;
+
+        if (parent.name.CompareTo(ConnectedMixedObject.name) == 0)
         {
             Destroy(ConnectedMixedObject);
-            Destroy(other.gameObject.GetComponent<ObjectCollisions>().ConnectedMixedObject);
+            ConnectedMixedObject = null;
 
-            other.gameObject.GetComponent<ObjectCollisions>().VisualPart.SetActive(true);
+            OtherResource.GetComponent<ObjectCollisions>().VisualPart.SetActive(true);
             VisualPart.SetActive(true);
         }
     }

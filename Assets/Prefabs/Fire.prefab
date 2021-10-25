@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 739483138829036610}
   m_Layer: 0
   m_Name: BaseFire
-  m_TagString: Untagged
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 739483139907640968}
   m_Layer: 0
   m_Name: Fire
-  m_TagString: Resource
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConnectedMixedObject: {fileID: 0}
+  OtherResource: {fileID: 0}
 --- !u!65 &739483139907640971
 BoxCollider:
   m_ObjectHideFlags: 0

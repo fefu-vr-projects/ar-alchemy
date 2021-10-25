@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4428306956748276558}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91baaaa0b3475c48b05093620fa4b1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
 --- !u!135 &4428306956748276553
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -170,9 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47abce69b76c93439ef72949e0b30c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPart: {fileID: 4428306956748276555}
-  MixedObject: {fileID: 5690927156703995523, guid: 5fd030606eabeaa42824590d91b034a8,
-    type: 3}
+  ConnectedMixedObject: {fileID: 0}
 --- !u!65 &4428306957017323774
 BoxCollider:
   m_ObjectHideFlags: 0

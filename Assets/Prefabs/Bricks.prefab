@@ -59,8 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47abce69b76c93439ef72949e0b30c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPart: {fileID: 8187592300096053023}
-  MixedObject: {fileID: 0}
+  ConnectedMixedObject: {fileID: 0}
+  OtherResource: {fileID: 0}
 --- !u!54 &8187592300063482908
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8187592300096052993}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
