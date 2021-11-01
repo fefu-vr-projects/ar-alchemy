@@ -12,12 +12,14 @@ public class ObjectCollisions : MonoBehaviour
     
     public GameObject ConnectedMixedObject;
     public GameObject OtherResource;
+    public bool isActive = true;
 
 
     private void Start()
     {
         ResourcesData = Resources.Load<ResourcesData>("Data/ResourcesData");
         VisualPart = gameObject.transform.GetChild(0).gameObject;
+        isActive = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,7 +39,8 @@ public class ObjectCollisions : MonoBehaviour
         ObjectType objType = gameObject.transform.GetChild(0).GetComponent<ObjectType>();
         ObjectType otherType = other.gameObject.GetComponent<ObjectType>();
 
-        TryGenerateMixedObject(objType, otherType);
+        if (isActive && other.gameObject.transform.parent.GetComponent<ObjectCollisions>().isActive)
+            TryGenerateMixedObject(objType, otherType);
     }
 
     private void TryGenerateMixedObject(ObjectType current, ObjectType other)
@@ -59,7 +62,10 @@ public class ObjectCollisions : MonoBehaviour
                 Vector3 newpos = (other.transform.position + VisualPart.transform.position) / 2;
 
                 other.gameObject.SetActive(false);
+                other.gameObject.transform.parent.GetComponent<ObjectCollisions>().isActive = false;
+                
                 VisualPart.SetActive(false);
+                isActive = false;
 
                 ConnectedMixedObject = Instantiate(r.MixedPrefab, newpos, Quaternion.identity);
 
@@ -67,6 +73,7 @@ public class ObjectCollisions : MonoBehaviour
                 parent.ConnectedMixedObject = ConnectedMixedObject;
                 OtherResource = parent.transform.gameObject;
                 parent.OtherResource = gameObject;
+                
 
                 Debug.Log($"Successfull combine resources {gameObject.name} with {other.gameObject.name}");
                 return;
@@ -91,8 +98,11 @@ public class ObjectCollisions : MonoBehaviour
             Destroy(ConnectedMixedObject);
             ConnectedMixedObject = null;
 
+            OtherResource.GetComponent<ObjectCollisions>().isActive = true;
             OtherResource.GetComponent<ObjectCollisions>().VisualPart.SetActive(true);
+
             VisualPart.SetActive(true);
+            isActive = true;
         }
     }
 }

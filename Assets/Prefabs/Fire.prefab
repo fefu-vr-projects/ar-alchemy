@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 739483138829036613}
   - component: {fileID: 739483138829036611}
   - component: {fileID: 739483138829036610}
+  - component: {fileID: 630842154}
   m_Layer: 0
   m_Name: BaseFire
   m_TagString: Resource
@@ -71,6 +72,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &630842154
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739483138829036617}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1697878
+  m_Center: {x: 0.010553741, y: -0.2927638, z: 2.3565027e-11}
 --- !u!1 &739483139907640972
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +111,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739483139907640972}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.2330003, y: 0, z: 0.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -119,6 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConnectedMixedObject: {fileID: 0}
   OtherResource: {fileID: 0}
+  isActive: 1
 --- !u!65 &739483139907640971
 BoxCollider:
   m_ObjectHideFlags: 0

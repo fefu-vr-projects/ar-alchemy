@@ -8,7 +8,7 @@ public class ObjectType : MonoBehaviour
 {
     public enum TObjectType
     {
-        TFire, TTree, TWater, TMixed
+        TFire, TTree, TWater, TStone, TMixed
     };
 
     [SerializeField]

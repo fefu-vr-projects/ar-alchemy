@@ -228,7 +228,7 @@ PrefabInstance:
     - target: {fileID: 7487455040255550556, guid: 7efdbcc9a25b8dd4cb467088731a0adb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.68
+      value: 0.315
       objectReference: {fileID: 0}
     - target: {fileID: 7487455040255550556, guid: 7efdbcc9a25b8dd4cb467088731a0adb,
         type: 3}
@@ -282,45 +282,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7efdbcc9a25b8dd4cb467088731a0adb, type: 3}
---- !u!1 &453366455 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4108593017497302873, guid: dca4b4b32313692499beb793093a1dff,
-    type: 3}
-  m_PrefabInstance: {fileID: 693290536}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &453366458
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453366455}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.0139675
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9453156, z: 0}
---- !u!1 &630842149 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 739483138829036617, guid: efb7169f497c0a146bf571c406307c2e,
-    type: 3}
-  m_PrefabInstance: {fileID: 797000442}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &630842154
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630842149}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.1697878
-  m_Center: {x: 0.010553741, y: -0.2927638, z: 2.3565027e-11}
 --- !u!1001 &693290536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -328,11 +289,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4108593018180306092, guid: dca4b4b32313692499beb793093a1dff,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4108593018180306095, guid: dca4b4b32313692499beb793093a1dff,
         type: 3}
       propertyPath: m_Name
@@ -346,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 4108593018180306099, guid: dca4b4b32313692499beb793093a1dff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.49
+      value: -1.669
       objectReference: {fileID: 0}
     - target: {fileID: 4108593018180306099, guid: dca4b4b32313692499beb793093a1dff,
         type: 3}
@@ -402,20 +358,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 739483138829036617, guid: efb7169f497c0a146bf571c406307c2e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Resource
-      objectReference: {fileID: 0}
     - target: {fileID: 739483139907640972, guid: efb7169f497c0a146bf571c406307c2e,
         type: 3}
       propertyPath: m_Name
       value: Fire
-      objectReference: {fileID: 0}
-    - target: {fileID: 739483139907640972, guid: efb7169f497c0a146bf571c406307c2e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 739483139907640973, guid: efb7169f497c0a146bf571c406307c2e,
         type: 3}

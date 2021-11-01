@@ -171,6 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConnectedMixedObject: {fileID: 0}
+  OtherResource: {fileID: 0}
+  isActive: 1
 --- !u!65 &4428306957017323774
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -182,8 +184,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3961647, y: 0.80448985, z: 1}
-  m_Center: {x: -0.0025724173, y: 0.3807298, z: 0}
+  m_Size: {x: 2.229727, y: 0.80448985, z: 2.1861486}
+  m_Center: {x: -0.0011359453, y: 0.3807298, z: 0.042125046}
 --- !u!54 &4428306957017323773
 Rigidbody:
   m_ObjectHideFlags: 0
