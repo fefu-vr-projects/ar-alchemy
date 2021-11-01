@@ -59,11 +59,7 @@ public class ObjectCollisions : MonoBehaviour
             {
                 Vector3 newpos = (other.transform.position + VisualPart.transform.position) / 2;
 
-                other.gameObject.SetActive(false);
-                other.gameObject.transform.parent.GetComponent<ObjectCollisions>().isActive = false;
-                
-                VisualPart.SetActive(false);
-                isActive = false;
+                SetActiveResources(this, other.gameObject.transform.parent.GetComponent<ObjectCollisions>(), false);
 
                 ConnectedMixedObject = Instantiate(r.MixedPrefab, newpos, Quaternion.identity);
 
@@ -96,11 +92,16 @@ public class ObjectCollisions : MonoBehaviour
             Destroy(ConnectedMixedObject);
             ConnectedMixedObject = null;
 
-            OtherResource.GetComponent<ObjectCollisions>().isActive = true;
-            OtherResource.GetComponent<ObjectCollisions>().VisualPart.SetActive(true);
-
-            VisualPart.SetActive(true);
-            isActive = true;
+            SetActiveResources(this, OtherResource.GetComponent<ObjectCollisions>(), true);
         }
+    }
+
+    void SetActiveResources(ObjectCollisions res1, ObjectCollisions res2, bool value)
+    {
+        res1.VisualPart.SetActive(value);
+        res1.IsActive = value;
+
+        res2.VisualPart.SetActive(value);
+        res2.IsActive = value;
     }
 }
