@@ -8,7 +8,6 @@ public class ObjectCollisions : MonoBehaviour
 {
     private string ResourceTag = "Resource";
     private GameObject VisualPart;
-    private static ResourcesData ResourcesData;
     
     public GameObject ConnectedMixedObject;
     public GameObject OtherResource;
@@ -17,7 +16,6 @@ public class ObjectCollisions : MonoBehaviour
 
     private void Start()
     {
-        ResourcesData = Resources.Load<ResourcesData>("Data/ResourcesData");
         VisualPart = gameObject.transform.GetChild(0).gameObject;
         isActive = true;
     }
@@ -54,7 +52,7 @@ public class ObjectCollisions : MonoBehaviour
         }
 
         var type = other.type;
-        foreach (var r in ResourcesData.Descriptions)
+        foreach (var r in ResourcesManager.Instance.Data.Descriptions)
         {
             if ((r.Type == current.type && type == r.OtherType) ||
                 r.Type == type && r.OtherType == current.type)
