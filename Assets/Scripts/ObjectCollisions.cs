@@ -11,13 +11,13 @@ public class ObjectCollisions : MonoBehaviour
     
     public GameObject ConnectedMixedObject;
     public GameObject OtherResource;
-    public bool isActive = true;
+    public bool IsActive = true;
 
 
     private void Start()
     {
         VisualPart = gameObject.transform.GetChild(0).gameObject;
-        isActive = true;
+        IsActive = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,7 +37,7 @@ public class ObjectCollisions : MonoBehaviour
         ObjectType objType = gameObject.transform.GetChild(0).GetComponent<ObjectType>();
         ObjectType otherType = other.gameObject.GetComponent<ObjectType>();
 
-        if (isActive && other.gameObject.transform.parent.GetComponent<ObjectCollisions>().isActive)
+        if (IsActive && other.gameObject.transform.parent.GetComponent<ObjectCollisions>().IsActive)
             TryGenerateMixedObject(objType, otherType);
     }
 
@@ -45,17 +45,17 @@ public class ObjectCollisions : MonoBehaviour
     {
         Debug.Log($"Try combine {current.name} with {other.name}");
 
-        if (current.type == other.type)
+        if (current.Type == other.Type)
         {
-            Debug.Log($"The same ObjectType {current.type.ToString()} on 2 GameObjects");
+            Debug.Log($"The same ObjectType {current.Type.ToString()} on 2 GameObjects");
             return;
         }
 
-        var type = other.type;
+        var type = other.Type;
         foreach (var r in ResourcesManager.Instance.Data.Descriptions)
         {
-            if ((r.Type == current.type && type == r.OtherType) ||
-                r.Type == type && r.OtherType == current.type)
+            if ((r.Type == current.Type && type == r.OtherType) ||
+                r.Type == type && r.OtherType == current.Type)
             {
                 Vector3 newpos = (other.transform.position + VisualPart.transform.position) / 2;
 

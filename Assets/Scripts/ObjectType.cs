@@ -12,5 +12,5 @@ public class ObjectType : MonoBehaviour
     };
 
     [SerializeField]
-    public TObjectType type;
+    public TObjectType Type;
 }
